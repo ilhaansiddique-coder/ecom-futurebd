@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Lato:wght@300;400;700;900&family=Nunito:wght@400;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 358 64% 47%;
+    --brand-hover: 358 64% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 25% 10%;
+
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 8 100% 97%;
+    --accent-foreground: 358 64% 41%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 358 64% 47%;
+
+    --radius: 1rem;
+    --surface: 0 0% 100%;
+    --surface-muted: 220 20% 98%;
+    --text-soft: 220 10% 46%;
+    --text-strong: 220 25% 10%;
+    --font-body: "Lato", system-ui, sans-serif;
+    --font-heading: "Nunito", system-ui, sans-serif;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 220 14% 80%;
+    --sidebar-primary: 358 64% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 16%;
+    --sidebar-accent-foreground: 220 14% 90%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 358 64% 47%;
+    --sidebar-muted: 220 15% 40%;
+  }
+
+  .dark {
+    --background: 220 25% 6%;
+    --foreground: 220 14% 95%;
+
+    --card: 220 25% 10%;
+    --card-foreground: 220 14% 95%;
+
+    --popover: 220 25% 10%;
+    --popover-foreground: 220 14% 95%;
+
+    --primary: 358 64% 47%;
+    --brand-hover: 358 64% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 220 14% 95%;
+
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 358 32% 18%;
+    --accent-foreground: 8 100% 92%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 358 64% 47%;
+    --surface: 220 25% 10%;
+    --surface-muted: 220 22% 12%;
+    --text-soft: 220 10% 64%;
+    --text-strong: 220 14% 95%;
+    --font-body: "Lato", system-ui, sans-serif;
+    --font-heading: "Nunito", system-ui, sans-serif;
+
+    --sidebar-background: 220 30% 5%;
+    --sidebar-foreground: 220 14% 80%;
+    --sidebar-primary: 358 64% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 12%;
+    --sidebar-accent-foreground: 220 14% 90%;
+    --sidebar-border: 220 20% 12%;
+    --sidebar-ring: 358 64% 47%;
+    --sidebar-muted: 220 15% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html[data-locale="bn"] {
+    --font-body: "Hind Siliguri", system-ui, sans-serif;
+    --font-heading: "Hind Siliguri", system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-body);
+    min-width: 320px;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at top left, hsl(var(--primary) / 0.12), transparent 28%),
+      radial-gradient(circle at bottom right, hsl(var(--warning) / 0.08), transparent 24%),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--background)) 100%);
+  }
+}
+
+@layer utilities {
+  .page_container {
+    width: min(100%, 1450px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .safe-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .safe-x {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .surface-card {
+    background: hsl(var(--surface) / 0.88);
+    border: 1px solid hsl(var(--border));
+    backdrop-filter: blur(18px);
+  }
+
+  .text-fluid-display {
+    font-size: clamp(1.875rem, 4vw, 3.5rem);
+    line-height: 1.02;
+  }
+
+  .text-fluid-title {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+  }
+
+  .text-fluid-body {
+    font-size: clamp(0.95rem, 1vw, 1.0625rem);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  .touch-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-sheet {
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen overflow-x-clip;
+  }
+
+  .interactive {
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 300ms ease,
+      background-color 300ms ease,
+      color 300ms ease,
+      border-color 300ms ease,
+      box-shadow 300ms ease;
+    touch-action: manipulation;
+  }
+
+  .interactive:active {
+    transform: scale(0.985);
+  }
+
+  .interactive::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgb(255 255 255 / 0.35) 0%, transparent 58%);
+    opacity: 0;
+    transition: opacity 220ms ease;
+    pointer-events: none;
+  }
+
+  .interactive:active::after {
+    opacity: 1;
+  }
+}
