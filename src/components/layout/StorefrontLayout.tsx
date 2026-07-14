@@ -366,7 +366,7 @@ export function StorefrontLayout({ children, title }: StorefrontLayoutProps) {
             <div className="flex-1">
               <form onSubmit={handleSearch} className="flex w-full items-center gap-2">
                 <div ref={searchContainerRef} className="relative flex min-w-0 flex-1">
-                  <div className="flex min-w-0 flex-1 items-center overflow-hidden rounded-full border border-border bg-white shadow-sm ring-2 ring-primary/5 focus-within:ring-primary/20 sm:rounded-[5px] sm:border-2 sm:border-primary sm:bg-card sm:ring-0">
+                  <div className="flex min-w-0 flex-1 items-center overflow-hidden rounded-full border border-border bg-card shadow-sm ring-2 ring-primary/5 focus-within:ring-primary/20 sm:rounded-[5px] sm:border-2 sm:border-primary sm:bg-card sm:ring-0">
                   <div className="hidden border-r border-border bg-accent/40 pl-4 pr-2 sm:flex">
                     <select className="h-12 min-w-[8.5rem] border-0 bg-transparent px-0 text-[15px] font-medium text-foreground focus:outline-none">
                       <option>{t("storefront.all_countries", "All Countries")}</option>
@@ -505,7 +505,7 @@ export function StorefrontLayout({ children, title }: StorefrontLayoutProps) {
                     </div>
                   )}
                 </div>
-                <button type="button" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white border border-border sm:hidden">
+                <button type="button" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-card border border-border sm:hidden">
                   <Camera className="h-5 w-5" />
                 </button>
               </form>

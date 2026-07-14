@@ -1,21 +1,13 @@
 import { MoonStar, SunMedium } from "lucide-react";
-import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { applyTheme, resolveTheme, type ThemeMode } from "@/lib/theme";
+import { applyTheme, useTheme, type ThemeMode } from "@/lib/theme";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<ThemeMode>("light");
-
-  useEffect(() => {
-    const resolved = resolveTheme();
-    setTheme(resolved);
-    applyTheme(resolved);
-  }, []);
+  const theme = useTheme();
 
   const toggleTheme = () => {
     const nextTheme: ThemeMode = theme === "light" ? "dark" : "light";
-    setTheme(nextTheme);
     applyTheme(nextTheme);
   };
 
